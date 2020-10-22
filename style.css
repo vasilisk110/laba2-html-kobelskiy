@@ -1,0 +1,168 @@
+body {
+    color: white;
+    font-size: 24px;
+    background-color: #181817;
+    margin: 0;
+    padding: 0;
+}
+
+#main {
+    background-color: #eb283f;
+    text-align: center;
+    font-size: 20px;
+    padding: 5px 0 5px;
+}
+
+#container {
+    background-color: #252422;
+    width: 1200px;
+    height: 800px;
+    margin: 0 auto;
+
+}
+
+#notes-block {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    overflow-y: auto;
+    width: 400px;
+    height: 800px;
+    background-color: #8f5a14;
+}
+
+#note-content {
+    float: left;
+    width: 800px;
+    height: 800px;
+    background-color: #252422;
+}
+
+.input {
+    color: white;
+    background-color: #181817;
+    border: none;
+    font-size: 20px;
+}
+
+#note-name {
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    margin: 10px auto 10px 10px;
+    width: 670px;
+    padding: 10px;
+}
+
+
+#delete-note {
+    display: block;
+    float: left;
+    box-sizing: border-box;
+    margin: 10px;
+    width: 100px;
+    padding: 10px;
+    transition: all 0.1s ease;
+}
+
+#delete-note:hover {
+    background-color: #403D39;
+    cursor: pointer;
+}
+
+
+
+#note-text {
+    margin: 0 10px 10px;
+    resize: none;
+    width: 760px;
+    height: 705px;
+    padding: 10px;
+}
+
+.note-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 800px;
+}
+
+.note-single {
+    color:black;
+    position: relative;
+    background-color: #e5e5d9;
+    text-align: center;
+    width: 400px;
+    height: 100px;
+}
+
+.note-single:hover {
+    background-color: #ececa1;
+    cursor: pointer;
+}
+
+.note-chosen {
+    background-color: #d4d4a1;
+}
+
+.note-chosen:hover {
+    background-color: #cbcbac;
+
+}
+
+#add-note {
+    display: block;
+    box-sizing: border-box;
+    margin: 10px;
+    width: 100px;
+    padding: 10px;
+    transition: all 0.1s ease;
+}
+
+
+#add-note:hover {
+    background-color: #252422;
+    cursor: pointer;
+}
+
+#note-name-preview {
+    position: absolute;
+    top: 5px;
+    left: 13%;
+    align-self: center;
+    margin: 0;
+    text-align: center;
+    width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#note-text-preview {
+    position: absolute;
+    top: 42%;
+    left: 13px;
+    margin: 0;
+    width: 380px;
+    font-size: 20px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#note-date {
+    position: absolute;
+    bottom: 5px;
+    left: 13px;
+    margin: 0;
+    width: 380px;
+    font-size: 16px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+

@@ -141,29 +141,31 @@ window.onbeforeunload = () => {
 
 // Вибір замітки
 document.querySelector('.note-list').onclick = function(event) {
-    let temp;
+    let target;
     if (event.target.tagName === 'UL') {
         return;
     }
     if (event.target.tagName != 'LI') {
-        temp = event.target.parentNode;
+        target = event.target.parentNode;
     } else {
-        temp = event.target;
+        target = event.target;
     }
     unselectNote();
-    let selectNote;
+
+    let selectedNote;
     for (let i = 0; i < Notes.length; i++) {
-        if (temp.id === Notes[i].id) {
-            selectNote = Notes[i];
+        if (target.id === Notes[i].id) {
+            selectedNote = Notes[i];
             break;
         }
     }
-    temp.classList.remove('note-single');
-    temp.classList.add('note-chosen', 'note-single');
-    document.getElementById('note-name').value = selectNote.name;
-    document.getElementById('note-text').value = selectNote.body;
-    selectNote.selected = true;
-    location.hash = selectNote.id;
+    target.classList.remove('note-single');
+    target.classList.add('note-chosen', 'note-single');
+    document.getElementById('note-name').value = selectedNote.name;
+    document.getElementById('note-text').value = selectedNote.body;
+    selectedNote.selected = true;
+    location.hash = selectedNote.id;
+    unlockInputs();
 }
 
 
@@ -257,3 +259,24 @@ function unlockInputs() {
     document.getElementById('delete-note').disabled = false;
     document.getElementById('note-text').disabled = false;
 }
+
+window.addEventListener('hashchange', () => {
+    for (let i = 0; i < Notes.length; i++) {
+        if (location.hash === '#' + Notes[i].id) {
+            let Note = document.getElementById(Notes[i].id);
+            unselectNote();
+            Note.classList.remove('note-single');
+            Note.classList.add('note-chosen', 'note-single');
+            Notes[i].selected = true;
+            document.getElementById('note-name').value = Notes[i].name;
+            document.getElementById('note-text').value = Notes[i].body;
+            unlockInputs();
+            return;
+        }
+    }
+    location.hash = '';
+    lockInputs();
+    document.getElementById('note-name').value = '';
+    document.getElementById('note-text').value = '';
+    unselectNote();
+})
